@@ -1,6 +1,6 @@
 {
   "name": "format-number-entry",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Parses numbers from a string and converts it into whatever format you want. 9995551111 --> '(###) ###-####' --> (999) 555-1111.",
   "main": "index.js",
   "scripts": {
