@@ -51,8 +51,8 @@ const phoneNumResult = (numArray, value = []) => {
 }
 
 
-const formatPhoneNum = (phoneNumString, formatTemplate = "(###) ###-####", keypadBool = false) => {
-    let phoneNum = phoneNumString
+const formatNumEntry = (inputString, formatTemplate = "(###) ###-####", keypadBool = false) => {
+    let phoneNum = inputString
     let template = formatTemplate == null ? ("(###) ###-####").split("") : formatTemplate.split("")
     let keypad = keypadBool
     if(typeof keypad !== "boolean"){
@@ -77,4 +77,4 @@ const allDigitsEntered = (input) => {
     return input.toString().split("").indexOf('#') === -1
 }
 
-module.exports = {formatPhoneNum, allDigitsEntered}
+module.exports = {formatNumEntry, allDigitsEntered}

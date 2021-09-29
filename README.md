@@ -1,26 +1,31 @@
-# format-telephone
+# format-number-entry
 
-Format-telephone provides a quick way to convert a string into a formatted telephone number. It also provides a way to convert an alphanumeric string into a normal phone number (eg 1-800-CALL-ATT into 1-800-225-5288). 
+Format-number-entry provides a quick way to convert a string into a formatted telephone number. It also provides a way to convert an alphanumeric string into a normal phone number (eg 1-800-CALL-ATT into 1-800-225-5288). 
+
+However, this package is not limited to telephone numbers only. It will accept any string and convert it into any template that you enter. 
 
 ## Installation
 
 ```bash
-npm install format-telephone
+npm install format-number-entry
 ```
 
 ## Usage
 
 ```javascript
-const {formatPhoneNum, allDigitsEntered} = require ('format-telephone')
+const {formatNumEntry, allDigitsEntered} = require ('format-telephone')
 
 // Convert String or Number
-formatPhoneNum("5552220000") // Returns (555) 222-0000
+formatNumEntry("555.222.0000") // Returns (555) 222-0000
+
+// Convert ANY String with ANY Template
+formatNumEntry(111223333, "###-##-####") // Returns 111-22-3333
 
 // Convert String or Number with Template
-formatPhoneNum("5552220000", "###-###-####") // Returns 555-222-0000
+formatNumEntry(0555222000, "###-###-####") // Returns 555-222-0000
 
 // Convert Keypad Entry with Template 
-formatPhoneNum("800CALLATT", "###.###.####", true) // Returns 800.225.5288
+formatNumEntry("800CALLATT", "###.###.####", true) // Returns 800.225.5288
 
 // Verify that Enough Digits have been Entered
 allDigitsEntered("(555) 222-#### ") // Returns false
@@ -29,7 +34,7 @@ allDigitsEntered("(555) 222-0000 ") // Returns true
 ## Variables
 
 ```javascript
-formatPhoneNum(input, template, keypad)
+formatNumEntry(input, template, keypad)
 // input: String or Number input.
 // template: String containing octothorps (#).      Default --> "(###) ###-####"
 // keypad: Boolean.                                 Default --> false
@@ -40,23 +45,24 @@ allDigitsEntered(input)
 // returns boolean --> false indicates not enough digits have been entered
 
 ```
-## Edge Cases
+## Edge Cases / Good-to-Know
 
 ```javascript
 // Too many digits
-formatPhoneNum(999111111111111111,"###-####") // Returns 999-1111
+formatNumEntry(999111111111111111,"###-####") // Returns 999-1111
 
 // Not enough digits
-formatPhoneNum(1234) // Returns (123) 4##-####
+formatNumEntry(1234) // Returns (123) 4##-####
 
 // No octothorps in template
-formatPhoneNum("555 2222", "xxx-xxxx") // Returns xxx-xxxx
+formatNumEntry("555 2222", "xxx-xxxx") // Returns xxx-xxxx
 
 // Not Indicating a Keypad Entry
-formatPhoneNum("800CALLATT", null, false) // Returns (800) ###-####
+formatNumEntry("800CALLATT", null, false) // Returns (800) ###-####
+
+// Leading Zeros
+formatNumEntry(0001112222) // Returns (000) 111-2222
+
+// No input
+formatNumEntry() // Returns "Error: Input must be a string or number"
 ```
-
-
-
-## License
-[MIT](https://choosealicense.com/licenses/mit/)

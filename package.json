@@ -1,7 +1,7 @@
 {
-  "name": "format-telephone",
+  "name": "format-number-entry",
   "version": "1.0.0",
-  "description": "Accepts a string and returns a formatted phone number.",
+  "description": "Parses numbers from a string and converts it into whatever format you want. 9995551111 --> '(###) ###-####' --> (999) 555-1111.",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -16,7 +16,13 @@
     "telephone",
     "phone-number",
     "phone number",
-    "phone"
+    "phone",
+    "keypad",
+    "keypad format",
+    "keypad converter",
+    "alphanumeric converter",
+    "format number entry",
+    "number converter"
   ],
   "author": "JHorst2020",
   "license": "ISC",
