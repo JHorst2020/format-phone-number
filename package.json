@@ -1,0 +1,27 @@
+{
+  "name": "format-telephone",
+  "version": "1.0.0",
+  "description": "Accepts a string and returns a formatted phone number.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JHorst2020/format-phone-number.git"
+  },
+  "keywords": [
+    "format telephone number",
+    "format phone number",
+    "telephone",
+    "phone-number",
+    "phone number",
+    "phone"
+  ],
+  "author": "JHorst2020",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JHorst2020/format-phone-number/issues"
+  },
+  "homepage": "https://github.com/JHorst2020/format-phone-number#readme"
+}
