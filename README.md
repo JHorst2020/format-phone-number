@@ -34,10 +34,11 @@ allDigitsEntered("(555) 222-0000 ") // Returns true
 ## Variables
 
 ```javascript
-formatNumEntry(input, template, keypad)
+formatNumEntry(input, template, keypad, isReactApp)
 // input: String or Number input.
 // template: String containing octothorps (#).      Default --> "(###) ###-####"
 // keypad: Boolean.                                 Default --> false
+// isReactApp: Boolean. Trims off the trailing octothorp when set to true. Default ==> false
 // returns string
 
 allDigitsEntered(input)

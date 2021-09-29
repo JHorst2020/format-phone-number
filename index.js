@@ -38,11 +38,14 @@ const isNumRecursion = (input, keypad, result = '') => {
     }
 }
 
-const phoneNumResult = (numArray, value = []) => {
+const phoneNumResult = (numArray, value = [], isReactApp) => {
     const currNum = numArray.shift()
     const octothorpIndex = value.indexOf('#')
     if(octothorpIndex !== -1){
         value.splice(octothorpIndex,1, currNum)
+    }
+    if(numArray.length === 0 && octorthorpIndex !== -1 && isReactApp===true){
+        return value.join("").split("#")[0]
     }
     if(numArray.length === 0 || octothorpIndex === -1){
         return value.join('')
@@ -51,7 +54,7 @@ const phoneNumResult = (numArray, value = []) => {
 }
 
 
-const formatNumEntry = (inputString, formatTemplate = "(###) ###-####", keypadBool = false) => {
+const formatNumEntry = (inputString, formatTemplate = "(###) ###-####", keypadBool = false, isReactApp = false) => {
     let phoneNum = inputString
     let template = formatTemplate == null ? ("(###) ###-####").split("") : formatTemplate.split("")
     let keypad = keypadBool
@@ -64,8 +67,8 @@ const formatNumEntry = (inputString, formatTemplate = "(###) ###-####", keypadBo
     if(typeof phoneNum === "number"){
         phoneNum = phoneNum.toString()
     }
-    const parsedPhoneNum = isNumRecursion(phoneNum, keypad)
-    const formatTele = phoneNumResult(parsedPhoneNum, template)
+    const parsedPhoneNum = isNumRecursion(phoneNum, keypad, isReactApp)
+    const formatTele = phoneNumResult(parsedPhoneNum, template, isReactApp)
     return(formatTele)
 }
 
