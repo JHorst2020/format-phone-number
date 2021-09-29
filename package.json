@@ -17,12 +17,14 @@
     "phone-number",
     "phone number",
     "phone",
-    "keypad",
+    "keypad entry",
     "keypad format",
     "keypad converter",
     "alphanumeric converter",
     "format number entry",
-    "number converter"
+    "number converter",
+    "credit card format",
+    "SSN Format"
   ],
   "author": "JHorst2020",
   "license": "ISC",
