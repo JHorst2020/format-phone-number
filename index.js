@@ -44,13 +44,14 @@ const phoneNumResult = (numArray, value = [], isReactApp) => {
     if(octothorpIndex !== -1){
         value.splice(octothorpIndex,1, currNum)
     }
-    if(numArray.length === 0 && octorthorpIndex !== -1 && isReactApp===true){
+    if(numArray.length === 0 && value.indexOf("#") !== -1 && isReactApp){
+        console.log("here")
         return value.join("").split("#")[0]
     }
     if(numArray.length === 0 || octothorpIndex === -1){
         return value.join('')
     }
-    return phoneNumResult(numArray, value)
+    return phoneNumResult(numArray, value, isReactApp)
 }
 
 
@@ -67,7 +68,7 @@ const formatNumEntry = (inputString, formatTemplate = "(###) ###-####", keypadBo
     if(typeof phoneNum === "number"){
         phoneNum = phoneNum.toString()
     }
-    const parsedPhoneNum = isNumRecursion(phoneNum, keypad, isReactApp)
+    const parsedPhoneNum = isNumRecursion(phoneNum, keypad)
     const formatTele = phoneNumResult(parsedPhoneNum, template, isReactApp)
     return(formatTele)
 }
