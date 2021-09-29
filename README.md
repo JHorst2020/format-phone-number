@@ -13,7 +13,7 @@ npm install format-number-entry
 ## Usage
 
 ```javascript
-const {formatNumEntry, allDigitsEntered} = require ('format-telephone')
+const {formatNumEntry, allDigitsEntered} = require ('format-number-entry')
 
 // Convert String or Number
 formatNumEntry("555.222.0000") // Returns (555) 222-0000
